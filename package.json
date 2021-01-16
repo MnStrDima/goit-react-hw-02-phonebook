@@ -6,16 +6,20 @@
     "name": "Dmitriy Medychenko",
     "email": "rAv3ndima91@gmail.com"
   },
-  "homepage": "https://mnstrdima.github.io/goit-react-hw-02-feedback",
+  "homepage": "https://mnstrdima.github.io/goit-react-hw-02-phonebook",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "formik": "^2.2.6",
     "modern-normalize": "^1.0.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "uuid": "^8.3.2",
+    "web-vitals": "^0.2.4",
+    "yup": "^0.32.8"
   },
   "scripts": {
     "start": "react-scripts start",
