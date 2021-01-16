@@ -3,10 +3,15 @@ import styles from './ContactList.module.css';
 
 export default function ContactList({ contacts, onDeleteButtonClick }) {
   return (
-    <ul>
-      {contacts.map(contact => (
-        <li key={contact.id}>
-          {contact.name}: {contact.number}
+    <ul className={styles.contactsList}>
+      {contacts.map((contact, idx) => (
+        <li
+          key={contact.id}
+          className={idx % 2 === 0 ? styles.even : styles.odd}
+        >
+          <span>
+            {contact.name}: {contact.number}
+          </span>
           <button
             type="button"
             id={contact.id}

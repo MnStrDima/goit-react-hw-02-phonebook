@@ -21,46 +21,45 @@ export default class ContactForm extends Component {
   };
 
   state = { name: '', number: '' };
-  onInputChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
 
   render() {
     return (
       <Formik
-        initialValues={{ name: this.state.name, number: this.state.number }}
+        initialValues={{ name: '', number: '' }}
         validationSchema={validationSchema}
-        onSubmit={({ name, number }, { setSubmitting }) => {
+        onSubmit={({ name, number }, { resetForm, setSubmitting }) => {
           this.props.onSubmit({ name, number, id: uuidv4() });
           setSubmitting(false);
+          resetForm();
         }}
       >
-        <Form>
-          <label>
-            Name
+        <Form className={styles.contactForm}>
+          <label className={styles.nameLabel}>
+            Name:
             <Field
               type="text"
               name="name"
-              //   value={this.state.name}
-              //   onChange={this.onInputChange}
+              className={styles.contactFormInput}
             />
+            <span className={styles.errorMessage}>
+              <ErrorMessage name="name" />
+            </span>
           </label>
-          <ErrorMessage name="name" />
 
-          <label>
-            Number
+          <label className={styles.numberLabel}>
+            Number:
             <Field
               type="tel"
               name="number"
-              //   value={this.state.number}
-              //   onChange={this.onInputChange}
+              className={styles.contactFormInput}
             />
+            <span className={styles.errorMessage}>
+              <ErrorMessage name="number" />
+            </span>
           </label>
-
-          <ErrorMessage name="number" />
-          <button type="submit">Add contact</button>
+          <button type="submit" className={styles.submitButton}>
+            Add contact
+          </button>
         </Form>
       </Formik>
     );
