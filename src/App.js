@@ -49,13 +49,13 @@ export default class App extends Component {
         <ContactForm onSubmit={this.handleSubmit} />
 
         <h2 className={styles.title}>Contacts:</h2>
-        {filteredContactsList.length > 1 && (
+        {contacts.length > 1 && (
           <Filter
             initialValue={filter}
             onFilterChange={this.handleFilterChange}
           />
         )}
-        {contacts.length > 0 && (
+        {filteredContactsList.length > 0 && (
           <ContactList
             contacts={filteredContactsList}
             onDeleteButtonClick={this.handleDeleteContact}
